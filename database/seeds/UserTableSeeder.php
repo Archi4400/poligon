@@ -11,6 +11,19 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+            [
+                'name'      => 'Автор не известен',
+                'email'     => 'author_uknowed@gmail.com',
+                'password'  => bcrypt(str_random(16)),
+            ],
+            [
+                'name'      => 'Автор',
+                'email'     => 'authord@gmail.com',
+                'password'  => bcrypt('123123'),
+            ],
+        ];
+
+        DB::table('users')->insert($data);
     }
 }
