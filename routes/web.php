@@ -15,4 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// обертка
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
+    // роуты внутри (можно было каждому роуту прописывать обертку blog/)
+    route::resource('posts','PostController')->names('blog.posts');
+});
+
 Route::resource('rest', 'RestTestController')->names('restTest');
